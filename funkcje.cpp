@@ -6,7 +6,7 @@
 
 using namespace std;
 
-// Definicje kolorów i stylów (opcjonalne)
+
 const char* RED = "\033[31m";
 const char* GREEN = "\033[32m";
 const char* YELLOW = "\033[33m";
@@ -15,7 +15,7 @@ const char* CYAN = "\033[36m";
 const char* BOLD = "\033[1m";
 const char* RESET = "\033[0m";
 
-// Struktury
+
 struct Ksiazka {
     char tytul[50];
     char autor[50];
@@ -58,7 +58,7 @@ struct LogEntry {
     char opis[200];
 };
 
-// Prototypy funkcji
+
 void utworzKontoUzytkownika();
 void utworzKontoPracownika();
 
@@ -103,9 +103,7 @@ void wyszukajKsiazkePoAutorze(ifstream &in);
 
 void sprawdzLubStworzDomyslneKontoPracownicze();
 
-// ------------------------------------------------------
-// IMPLEMENTACJE FUNKCJI
-// ------------------------------------------------------
+
 
 bool czyPlikPusty(const char* nazwa) {
     ifstream f(nazwa, ios::binary);
@@ -183,9 +181,7 @@ void sprawdzLubStworzDomyslneKontoPracownicze() {
     }
 }
 
-// ------------------------------------------------------
-// KSI¥¯KI / WYSZUKIWANIE
-// ------------------------------------------------------
+
 int menuKsiazek() {
     int wybor;
     cout << CYAN << "\n--- Dostepne ksiazki ---" << RESET << endl;
@@ -285,9 +281,7 @@ void przegladajKsiazki() {
     in.close();
 }
 
-// ------------------------------------------------------
-// KONTA I LOGOWANIE
-// ------------------------------------------------------
+
 void utworzKontoUzytkownika() {
     cout << "\n--- Tworzenie konta uzytkownika ---" << endl;
     Uzytkownik u;
@@ -486,9 +480,7 @@ void zmienHasloUzytkownika() {
         cout << RED << "Nie udalo sie zmienic hasla. Bledne ID lub stare haslo." << RESET << endl;
 }
 
-// ------------------------------------------------------
-// WYPO¯YCZENIA, ZWROTY, KARY
-// ------------------------------------------------------
+
 void wypozyczKsiazke() {
     cout << GREEN << "\n--- Wypozyczanie ksiazki ---" << RESET << endl;
     char numerID[10];
@@ -690,9 +682,7 @@ void naliczKary() {
         cout << YELLOW << "Brak kar do naliczenia (za przetrzymanie)." << RESET << endl;
 }
 
-// ------------------------------------------------------
-// RANKING
-// ------------------------------------------------------
+
 void rankingNajchetniejWypozyczanych() {
     struct Stat {
         char tytul[50];
@@ -746,9 +736,7 @@ void rankingNajchetniejWypozyczanych() {
     }
 }
 
-// ------------------------------------------------------
-// MENU
-// ------------------------------------------------------
+
 void menuPracownika() {
     int wybor;
     do {
@@ -898,9 +886,7 @@ void menuKlienta(const char* id) {
     menuKlientaRec(id);
 }
 
-// ------------------------------------------------------
-// USUWANIE KSI¥¯EK
-// ------------------------------------------------------
+
 void usunKsiazke() {
     cout << YELLOW << "\n--- Usuwanie ksiazki ---" << RESET << endl;
     char tytulSzukany[50];
@@ -953,9 +939,7 @@ void usunKsiazke() {
         cout << RED << "Nie znaleziono ksiazki o tytule: " << tytulSzukany << RESET << "\n";
 }
 
-// ------------------------------------------------------
-// DOSTAWY
-// ------------------------------------------------------
+
 void automatyczneZamawianie() {
     cout << YELLOW << "\n--- Automatyczne zamawianie ---" << RESET << endl;
     fstream plikKs("ksiazki.bin", ios::binary | ios::in);
@@ -1187,9 +1171,7 @@ void zarzadzajDostawami() {
     } while(wybor != 4);
 }
 
-// ------------------------------------------------------
-// WYBÓR W MENU G£ÓWNYM
-// ------------------------------------------------------
+
 int PrzechwycWybor() {
     int wybor;
     cout << YELLOW << "\n========== MENU GLOWNE ==========" << RESET << endl;
